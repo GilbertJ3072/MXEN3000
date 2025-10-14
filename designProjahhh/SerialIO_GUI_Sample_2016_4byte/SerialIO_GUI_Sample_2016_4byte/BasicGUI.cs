@@ -26,7 +26,7 @@ namespace SerialGUISample
         int freakyBasespeed = 100;
         byte freakyAdjustment = 0;
         bool freakyFlipFlop = false;
-        int freakyDelay = 100;
+        int freakyDelay = 300;
 
 
         // Declare variables to store inputs and outputs.
@@ -378,8 +378,8 @@ namespace SerialGUISample
                             {
                                 codeInt = 255 - freakyAdjustment;
                                 code = (byte) codeInt;
-                                sendIO(2, code);
-                                sendIO(3, (byte)freakyAdjustment);
+                                sendIO(3, code);
+                                sendIO(2, (byte)freakyAdjustment);
                                 Thread.Sleep(freakyDelay); // crank it for 100 ms
                                 sendIO(2, (byte)freakyBasespeed);
                                 sendIO(3, (byte)freakyBasespeed); // stop motors after crank
@@ -399,8 +399,8 @@ namespace SerialGUISample
                             {
                                 codeInt = 255 - freakyAdjustment;
                                 code = (byte)codeInt;
-                                sendIO(3, code);
-                                sendIO(2, (byte)freakyAdjustment);
+                                sendIO(2, code);
+                                sendIO(3, (byte)freakyAdjustment);
                                 Thread.Sleep(freakyDelay); // crank it for 100 ms
                                 sendIO(2, (byte)freakyBasespeed);
                                 sendIO(3, (byte)freakyBasespeed); // stop motors after crank
@@ -510,5 +510,6 @@ namespace SerialGUISample
         }
 
     }
+
 
 }
